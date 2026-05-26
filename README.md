@@ -3,6 +3,12 @@ Repository de lab CPT progressif, documentation et fichier .pka
 
 Vous trouverez ici, plusieurs lab directement exploitable sur Cisco Packet Tracer.
 
+---
+## S
+| Niveau | Description |
+|---|---|
+| [ Debutant ](./Debutant) | Découverte de Cisco Packet Tracer, les fonctionnalités, premiére topologie |
+
 ## Structure type
 
 ```
