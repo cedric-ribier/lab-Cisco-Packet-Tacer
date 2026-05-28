@@ -23,10 +23,10 @@ utilisable en autonomie ou en accompagnement de formation TSSR / CCNA.
 
 ```
 lab-Cisco-Packet-Tracer/
-├── 01-debutant/          # Commutation L2, VLANs, STP
-├── 02-intermediaire/     # EtherChannel, routage, DHCP
-├── 03-avance/            # OSPF, ACL, NAT
-└── 04-expert/            # HSRP, BGP, VPN, sécurité
+├── 01-debutant/          # Bases réseau, VLANs, routage statique, DHCP
+├── 02-intermediaire/     # STP, EtherChannel, SVIs, OSPF, ACL, NAT
+├── 03-avance/            # OSPF multi-area, HSRP, sécurité, VPN, BGP
+└── 04-expert/            # QoS, réseau d'entreprise complet
 ```
 
 ---
@@ -37,41 +37,45 @@ lab-Cisco-Packet-Tracer/
 
 | Lab | Titre | Thèmes | Durée |
 |-----|-------|--------|-------|
-| [L-01](01-debutant/lab-01-premier-pas/) | Premier pas | Câblage, IOS, SSH | 15 min |
-| [L-02](01-debutant/lab-02-vlans-access/) | VLANs & ports access | VLAN, access, isolation L2 | 20 min |
-| [L-03](01-debutant/lab-03-vtp-trunks/) | VTP & trunks dot1q | VTP server/client, trunk, dot1q | 40 min |
-| [L-04](01-debutant/lab-04-stp-root/) | STP & bridge priority | STP, root bridge, PortFast | 30 min |
+| [L-01](01-debutant/lab-01-premier-pas/) | Premier pas | Interface CPT, câblage, ping | 15 min |
+| [L-02](01-debutant/lab-02-osi-adressage/) | Modèle OSI & plan d'adressage | OSI, IPv4, subnetting | 20 min |
+| [L-03](01-debutant/lab-03-ios-base/) | Commandes IOS de base | IOS, SSH, show, sauvegarde | 20 min |
+| [L-04](01-debutant/lab-04-vlans-access/) | VLANs & ports access | VLAN, access, isolation L2 | 20 min |
+| [L-05](01-debutant/lab-05-routage-statique/) | Routage statique | ip route, default route | 30 min |
+| [L-06](01-debutant/lab-06-dhcp/) | DHCP sur routeur | DHCP pool, options, baux | 20 min |
+| [L-07](01-debutant/lab-07-vtp-trunks/) | VTP & trunks dot1q | VTP server/client, trunk, dot1q | 40 min |
+| [L-08](01-debutant/lab-08-roas/) | Router-on-a-stick | Sous-interfaces, inter-VLAN | 30 min |
 
 ### 🔵 Niveau 2 — Intermédiaire
 
 | Lab | Titre | Thèmes | Durée |
 |-----|-------|--------|-------|
-| [L-05](02-intermediaire/lab-05-etherchannel-lacp/) | EtherChannel LACP | LACP, Port-channel, redondance | 30 min |
-| [L-06](02-intermediaire/lab-06-routage-statique/) | Routage statique | ip route, default route | 30 min |
-| [L-07](02-intermediaire/lab-07-roas/) | Router-on-a-stick | Sous-interfaces, inter-VLAN | 30 min |
-| [L-08](02-intermediaire/lab-08-svi-l3/) | SVIs & routage L3 | ip routing, SVI, L3 switch | 30 min |
-| [L-09](02-intermediaire/lab-09-dhcp-helper/) | DHCP centralisé | DHCP server, ip helper-address | 30 min |
+| [L-09](02-intermediaire/lab-09-stp/) | STP & bridge priority | STP, root bridge, PortFast | 30 min |
+| [L-10](02-intermediaire/lab-10-etherchannel/) | EtherChannel LACP | LACP, Port-channel, redondance | 30 min |
+| [L-11](02-intermediaire/lab-11-svi-l3/) | SVIs & routage L3 switch | ip routing, SVI, L3 switch | 30 min |
+| [L-12](02-intermediaire/lab-12-dhcp-helper/) | DHCP centralisé & ip helper | DHCP server, helper-address | 30 min |
+| [L-13](02-intermediaire/lab-13-ospf-mono/) | OSPF mono-area | OSPF area 0, DR/BDR | 45 min |
+| [L-14](02-intermediaire/lab-14-acl-standard/) | ACL standard | permit, deny, filtrage source | 30 min |
+| [L-15](02-intermediaire/lab-15-nat-pat/) | NAT & PAT | NAT statique, PAT overload | 30 min |
+| [L-16](02-intermediaire/lab-16-acl-etendues/) | ACL étendues & DMZ | Named ACL, DMZ, filtrage L4 | 45 min |
 
 ### 🟠 Niveau 3 — Avancé
 
 | Lab | Titre | Thèmes | Durée |
 |-----|-------|--------|-------|
-| [L-10](03-avance/lab-10-ospf-mono-area/) | OSPF mono-area | OSPF area 0, DR/BDR | 45 min |
-| [L-11](03-avance/lab-11-ospf-multi-area/) | OSPF multi-area | ABR, summarization | 45 min |
-| [L-12](03-avance/lab-12-acl-standard/) | ACL standard | permit, deny, show access-lists | 30 min |
-| [L-13](03-avance/lab-13-acl-etendues/) | ACL étendues nommées | DMZ, named ACL, filtrage L4 | 45 min |
-| [L-14](03-avance/lab-14-nat-pat/) | NAT & PAT | NAT statique, PAT overload | 30 min |
+| [L-17](03-avance/lab-17-ospf-multi/) | OSPF multi-area | ABR, summarization, inter-area | 45 min |
+| [L-18](03-avance/lab-18-hsrp/) | HSRP & redondance | HSRP, failover, preempt | 45 min |
+| [L-19](03-avance/lab-19-securite-switch/) | Sécurité switch | Port-security, DHCP snooping, DAI | 45 min |
+| [L-20](03-avance/lab-20-vpn-ipsec/) | VPN site-à-site IPsec | IKEv1, crypto map, tunnel | 60 min |
+| [L-21](03-avance/lab-21-bgp/) | BGP bases (eBGP) | eBGP, AS-PATH, préfixes | 60 min |
 
 ### 🟣 Niveau 4 — Expert
 
 | Lab | Titre | Thèmes | Durée |
 |-----|-------|--------|-------|
-| [L-15](04-expert/lab-15-hsrp/) | HSRP & redondance | HSRP, failover, preempt | 45 min |
-| [L-16](04-expert/lab-16-bgp-bases/) | BGP bases | eBGP, AS-PATH, préfixes | 60 min |
-| [L-17](04-expert/lab-17-vpn-ipsec/) | VPN site-à-site IPsec | IKEv1, crypto map, tunnel | 60 min |
-| [L-18](04-expert/lab-18-securite-switch/) | Sécurité switch | Port-security, DHCP snooping, DAI | 45 min |
-| [L-19](04-expert/lab-19-qos-bases/) | QoS bases | DSCP, MQC, priority queue | 45 min |
-| [L-20](04-expert/lab-20-entreprise-complet/) | Réseau d'entreprise complet | Synthèse 3-tier, full stack | 120 min |
+| [L-22](04-expert/lab-22-qos/) | QoS bases | DSCP, MQC, priority queue | 45 min |
+| [L-23](04-expert/lab-23-entreprise-1/) | Réseau d'entreprise — partie 1 | 3-tier, OSPF, HSRP, DHCP | 90 min |
+| [L-24](04-expert/lab-24-entreprise-2/) | Réseau d'entreprise — partie 2 | NAT, ACL, VPN, QoS | 90 min |
 
 ---
 
@@ -79,7 +83,7 @@ lab-Cisco-Packet-Tracer/
 
 ```
 lab-XX-nom/
-├── README.md              # Objectifs, prérequis, commandes de vérification
+├── README.md              # Objectifs, prérequis, topologie, commandes de vérification
 ├── instructions.html      # Énoncé à coller dans le Plain Editor du Activity Wizard
 └── lab-XX-nom.pka         # Fichier Packet Tracer Activity (apprenant)
 ```
@@ -99,17 +103,18 @@ lab-XX-nom/
 ## 🗺️ Graphe de dépendances
 
 ```
-L-01 → L-02 → L-03 → L-04 → L-05
-                              ↓
-              L-06 → L-07 → L-08 → L-09 → L-18
-                              ↓
-              L-10 → L-11 → L-16
-               ↓
-              L-12 → L-13 → L-17
-               ↓
-              L-14 → L-15 → L-20
-               ↓
-              L-19
+L-01 → L-02 → L-05 → L-06 → L-08
+         ↓              ↓
+        L-03 → L-04 → L-07
+                            ↓
+                  L-09 → L-10 → L-11 → L-12
+                                   ↓
+                  L-13 → L-14 → L-15 → L-16 → L-20
+                    ↓
+                  L-17 → L-21
+                  L-18 → L-23 → L-24
+                  L-19 ↗
+                  L-22 ↗
 ```
 
 ---
