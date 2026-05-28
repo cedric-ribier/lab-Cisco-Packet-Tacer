@@ -1,4 +1,4 @@
-# L-02 — VLANs & ports access
+# L-04 — VLANs & ports access
 
 > **Niveau :** 🟢 Débutant · **Durée estimée :** 20 min · **Prérequis :** [L-01](../lab-01-premier-pas/)
 
