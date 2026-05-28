@@ -73,8 +73,8 @@ S1(config-line)# exit
 ```
 Switch(config)# hostname SW1
 SW1(config)# ip domain-name lab-tssr.local # Personnalisée le domaine
-SW1(config)# username abdo password 12345678 # Utilisé mot de passe fort
-SW1(config)# username superabdo privilege 15 password 12345678 # Utilisé mot de passe fort
+SW1(config)# username admin password 12345678 # Utilisé mot de passe fort
+SW1(config)# username superadmin privilege 15 password 12345678 # Utilisé mot de passe fort
 SW1(config)# ip ssh version 2
 SW1(config)# ip ssh authentication-retries 3
 SW1(config)# crypto key generate rsa
@@ -86,8 +86,8 @@ SW1(config-line)# exit
 SW1(config)# ip ssh time-out 120
 ```
 
-L'utilisateur "abdo" a le privilège par défaut 1 avec des droits limités, tandis
-que "superabdo" a le privilège 15, lui accordant un accès complet à toutes
+L'utilisateur "admin" a le privilège par défaut 1 avec des droits limités, tandis
+que "superadmin" a le privilège 15, lui accordant un accès complet à toutes
 les commandes administratives.
 Le niveau de privilège 15 accorde un accès complet à toutes les
 commandes de configuration et d'exécution sur les appareils Cisco.
