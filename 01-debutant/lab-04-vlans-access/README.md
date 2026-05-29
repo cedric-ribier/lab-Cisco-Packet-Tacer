@@ -1,6 +1,6 @@
 # L-04 — VLANs & ports access
 
-> **Niveau :** 🟢 Débutant · **Durée estimée :** 20 min · **Prérequis :** [L-01](../lab-01-premier-pas/)
+> **Niveau :** 🟢 Débutant · **Durée estimée :** 20 min · **Prérequis :** [L-03](../lab-03-ios-base/)
 
 Créer des VLANs manuellement sur un switch, assigner les ports access et vérifier  
 que les VLANs isolent correctement le trafic L2.
@@ -11,6 +11,7 @@ que les VLANs isolent correctement le trafic L2.
 
 - Créer des VLANs et leur attribuer un nom
 - Assigner des ports en mode `access` à un VLAN
+- Activer `spanning-tree portfast` sur les ports access
 - Vérifier la configuration avec `show vlan brief`
 - Comprendre l'isolation L2 entre VLANs
 
@@ -19,9 +20,11 @@ que les VLANs isolent correctement le trafic L2.
 ## 🗺️ Topologie
 
 ```
-PC0 ──── |            | ──── PC2
-PC1 ──── | Switch2960 | ──── PC3
-         |            | ──── PC4
+PC0 ──┐
+PC1 ──┤
+PC2 ──┤── Switch2960 (Sw-Lab)
+PC3 ──┤
+PC4 ──┘
 ```
 
 | Équipement | Port switch | VLAN | Adresse IP     | Masque        |
@@ -34,12 +37,23 @@ PC1 ──── | Switch2960 | ──── PC3
 
 ---
 
+## 📋 VLANs à créer
+
+| VLAN | Nom       |
+|------|-----------|
+| 10   | Compta    |
+| 20   | RH        |
+| 30   | Direction |
+
+---
+
 ## 📝 Travail demandé
 
-1. Créer les VLANs 10 (`Compta`), 20 (`RH`), 30 (`Direction`) sur le switch
-2. Assigner chaque port access au VLAN correspondant
-3. Configurer les adresses IP sur chaque PC
-4. Vérifier l'isolation : ping intra-VLAN doit réussir, inter-VLAN doit échouer
+1. Appliquer la configuration de base du switch (hostname, enable secret) — cf. L-03
+2. Créer les VLANs 10, 20 et 30 avec leurs noms
+3. Assigner chaque port access au VLAN correspondant
+4. Configurer les adresses IP sur chaque PC
+5. Vérifier l'isolation L2 entre VLANs
 
 ---
 
@@ -53,8 +67,8 @@ show vlan brief
 show interfaces fa0/1 switchport
 
 ! Depuis les PCs
-ping 172.16.10.2   (PC0 → PC1 : succès attendu)
-ping 172.16.20.1   (PC0 → PC2 : échec attendu)
+ping 172.16.10.2   (PC0 → PC1 : succès — même VLAN)
+ping 172.16.20.1   (PC0 → PC2 : échec — VLANs différents)
 ```
 
 ---
@@ -73,7 +87,7 @@ ping 172.16.20.1   (PC0 → PC2 : échec attendu)
 
 Sans routage, deux machines dans des VLANs différents ne peuvent pas communiquer  
 même si elles sont sur le même switch physique. C'est l'objectif du VLAN : **segmenter** le réseau.  
-Le routage inter-VLAN sera abordé en niveau 2 (L-07 et L-08).
+Le routage inter-VLAN sera abordé en L-08 (Router-on-a-stick).
 
 ---
 
@@ -81,9 +95,14 @@ Le routage inter-VLAN sera abordé en niveau 2 (L-07 et L-08).
 
 | Fichier | Description |
 |---------|-------------|
-| `lab-02-vlans-access.pka` | Fichier activité Packet Tracer |
+| `lab-04-vlans-access.pka` | Fichier activité Packet Tracer |
+| `instructions.html` | Énoncé à coller dans le Plain Editor |
 
 ---
 
-*Lab précédent : [L-01 — Premier pas](../lab-01-premier-pas/)*  
-*Lab suivant : [L-03 — VTP & trunks dot1q](../lab-03-vtp-trunks/)*
+> 📖 Référence complète : [00-documentation/Switch-configuration-base/](../../../00-documentation/Switch-configuration-base/CONFIGURATION-BASE.md)
+
+---
+
+*Lab précédent : [L-03 — Commandes IOS de base](../lab-03-ios-base/)*  
+*Lab suivant : [L-05 — Routage statique](../lab-05-routage-statique/)*
